@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>VDoc - Responsive Documentation HTML Template</title>
+    <meta name="description" content="Free responsive HTML template for your documentation">
+    <meta name="author" content="valthemes.com">
+    <meta name="format-detection" content="telephone=no">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/prettify.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" >
+</head>
+<body>
+	<section class="content">
+		<div class="container">
+			<div class="content-wrap">
+				<div class="row">
+					<aside>
+						<div class="menu-box">
+							<h4>Navigation</h4>
+							<nav>
+								<ul>
+									<li><a href="#start" class="current">Get started</a></li>
+									<li><a href="#features">Test</a></li>
+									<li><a href="#code">Bug Fixing</a></li>
+									<li><a href="#images">Images</a></li>
+									<li><a href="#credit">Credits</a></li>
+								</ul>
+							</nav>
+						</div>
+					</aside>
+					<div class="content-info">
+						<div class="section-txt" id="start">
+							<h3>Get started</h3>
+							<p>With the todo app you are able to create, filter, and delete a list of todo items. We can see a minimalistic design, it's programmed in Vanilla javascript. The app has been creating by using the model-view-control pattern(MVC)</p>
+              <p>The MVC model divide the data logic, from the display functionality managing them with differents entity, knows as the controller.</p>
+              <p>The lead part of the program provides:</p>
+              <ul>
+								<li>listening to user actions from View</li>
+								<li>Calling Model to perform requested operations</li>
+								<li>Calling View to display results from Model</li>
+              </ul>
+
+              <p>The model view controller</p>
+
+              <ul>
+								<li>Model: here we will found the generation of the methods and the creations of the prototypes that we need to manage the local storage option.</li>
+								<li>View: manages the user interactions with the application, manipulates DOM structure. </li>
+								<li>Controller: connects model and view by converting inputs from the View for the Model component.</li>
+							</ul>
+							<p>
+                We will use Jasmin test enviroment, to test and maintain the app.
+                You will find all the tests in the folder ///// enter here the folder of jasmine ///
+              </p>
+              <h3>Main files</h3>
+							<ul>
+                <li><b>Html</b></li>
+                  <ul>
+                    <li>index.html</li>
+                  </ul>
+								<li><b>Css</b></li>
+                <ul>
+                  <li>index.css</li>
+                  <li>base.css</li>
+                </ul>
+								<li><b>Javascript</b></li>
+                  <ul>
+                    <li>
+                      app.js
+                      <p>
+                          this file is the starting point to initialize the Model, View and Controller.
+                          Manage the user action listeners, delivers methods that connects
+                          View interactions with Model operations.
+                      </p>
+                    </li>
+                    <li>
+                      store.js
+                      <p>
+                        We have to highlight this file, because right now is one of the most dangerous.
+                        why? Because the use of local storage. Local storage it's not a sure option to store sensible data,
+                        we will explain in this dedicated section//hereWeNeedALInk// why it's not a good idea use it, and what solution we have
+                        to avoid this obsolete and unsecure features.
+                      </p>
+                    </li>
+                    <li>
+                      helper.js
+                      <P>
+                        deliver helper functions for DOM elements - querying, wrapping, delegating events
+                      </P>
+                    </li>
+                    <li>
+                      model.js
+                      <P>
+                        Data management methods
+                      </P>
+                    </li>
+                    <li>
+                      template.js
+                      <P>
+                        file that concern template function to display list items,
+                        change button states, escape characters
+                      </P>
+                    </li>
+                    <li>
+                      view.js
+                      <P>
+                        defines how the data will display
+                      </P>
+                    </li>
+                  </ul>
+							</ul>
+						</div>
+
+            <!-- //////////////////TESTING HERE /////////////////////////  -->
+
+            <div class="section-txt" id="features">
+              <h3>Test</h3>
+              <ul>
+                <li>
+                  <b>Manual testing:</b>
+                  <p>
+                    Type mistake.<br />
+                    Location: <br />
+                    js/controller.js, line 95
+                    Controller.prototype.adddItem
+                    Fixed:<br />
+                    Controller.prototype.addItem
+                </li>
+                <li>
+                  Associated label to the input with a class
+                  <xmp>
+                    <input class="toggle-all" type="checkbox">
+                    <label for="toggle-all">Mark all as complete</label>
+                  </xmp>
+                  Fixed:
+                  <xmp>
+                    <input class="toggle-all" id=” toggle-all” type="checkbox">
+                  </xmp>
+                </li>
+              </ul>
+              <p>
+                <ul>
+                  <li>
+                    <b>Automatic Jasmine testing</b>
+                  </li>
+                  <br />It shoulds:
+                  <ul>
+                    <li>
+                      <p><b>Show entries on start-up</b></p>
+                      <p>The array has to be empty when the application start</p>
+                    </li>
+                    <li>
+                      <p><b>Show active entries</b></p>
+                      <p>shows total count of the tasks, array can be empty or filled it with the tasks</p>
+                    </li>
+                    <li>
+                      <p><b>Show completed entries</b></p>
+                      <p>when a taks is complete = false</p>
+                      </p>
+                    </li>
+                    <li>
+                      <p><b>Show the content block when todos exists</b></p>
+                      <p>create a list of the tasks</p>
+                    </li>
+                    <li>
+                      <p><b>Highlight "All" filter by default</b></p>
+                      <p>sets 'all' as default, takes total count, even if it's empty</p>
+                    </li>
+                    <li>
+                      <p><b>Toggle all todos to completed</b></p>
+                      <p>updates all tasks as completed (model component)</p>
+                    </li>
+                    <li>
+                      <p><b>Update the view</b></p>
+                      <p>updates the status as completed (view component)</p>
+                    </li>
+                    <li>
+                      <p><b>Add a new todo to the model</b></p>
+                      <p>adds new task to the list</p>
+                    </li>
+                    <li>
+                      <p><b>Remove an entry from the model</b></p>
+                      <p>removes todo task (model component), empty array</p>
+                    </li>
+                  </ul>
+                </ul>
+						<div class="section-txt" id="code">
+							<h3>Bug Fixing</h3>
+              <ul>
+                <li>
+                  <b>controller.js</b>
+                  <p>bug: <xmp>Controller.prototype.adddItem</xmp></p>
+                  <p>Solved: <xmp>Controller.prototype.addItem</xmp></p>
+                </li>
+                <li>
+                  <b>store.js</b>
+                  <p>bug: <xmp>
+                    for (var i = 0; i < 6; i++) {
+                    newId += charset.charAt(Math.floor(Math.random() * charset.length));
+                    }
+                  </xmp></p>
+                  <p>Solved:
+                    <xmp>var isUnique = false;
+
+                  while (!isUnique){
+                    for (var i = 0; i < 6; i++) {
+                      newId += charset.charAt(Math.floor(Math.random() * charset.length));
+                    }
+                    isUnique = true;
+                    for (var i = 0; i < todos.length; i++) {
+                      if (todos[i].id == newId) {
+                        isUnique = false;
+                      }
+                    }
+                  }
+                </xmp></p>
+                </li>
+                <li>
+                  <b>index.html</b>
+                  <p>bug: <xmp><input class="toggle-all" type="checkbox"></xmp></p>
+                  <p>Solved: <xmp>input class="toggle-all" id="toggle-all" type="checkbox"></xmp></p>
+                </li>
+              </ul>
+            </div>
+
+						<div class="section-txt" id="images">
+							<h3>Comparison between competitors</h3>
+							<ul>
+								<li><p><b>Design</b></p></li>
+                  <ul>
+                    <li>
+                      <b>Our todo</b>
+                      <p>
+                          Minimalistic and really easy to use way. Every user able to understand
+                          can easily enjoy all the functionality of the programs without lost
+                          a considerable amounts of time reading confusional information.
+                          This helps a lot the UX.
+                      </p>
+                    </li>
+
+                    <li>
+                      <b>http://todolistme.net/</b>
+                      <p>
+                        The design is more complex than our products. But sometimes more choice for
+                      the user means only more confusion. we see the icons on the menu "remote" and "sync"
+                      With the last we are able to create an account. Why called it sync ? and not "sing in"
+                      this could lead to several misunderstanding. About the remote, with modern technology
+                      you don't need to have 2 differnt version of the site, one for computer and one for mobile.
+                      And this name is wrong too.
+                    </p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <ul>
+
+              </ul>
+
+              <h3>Summary performance comparison</h3>
+
+              <ul>
+								<li>
+                  <p>
+                    <table style="width:100%">
+                      <tr>
+                        <th>Evalueted Parameter</th>
+                        <th>Our Todo</th>
+                        <th>todolistme.net/</th>
+                      </tr>
+                      <tr>
+                        <td>Loading:</td>
+                        <td>22,5 ms</td>
+                        <td>86,1 ms</td>
+                      </tr>
+                      <tr>
+                        <td>Scripting</td>
+                        <td>85,4 ms</td>
+                        <td>3017,2 ms</td>
+                      </tr>
+                      <tr>
+                        <td>Rendering</td>
+                        <td>61,4 ms</td>
+                        <td>1667,1 ms</td>
+                      </tr>
+                      <tr>
+                        <td>Painting</td>
+                        <td>39.5 ms</td>
+                        <td>1004,2 ms</td>
+                      </tr>
+                      <tr>
+                        <td>Other</td>
+                        <td>216 ms</td>
+                        <td>3329,8 ms</td>
+                      </tr>
+                      <tr>
+                        <td>Idle</td>
+                        <td>15078,1 ms</td>
+                        <td>51320,5 ms</td>
+                      </tr>
+                    </table>
+                  </p>
+                </li>
+                <h4>Image Gallery</h4>
+                <li>
+                  <img src="https://image.ibb.co/hXOh3L/Our-Todo.png" />
+                  <img src="https://image.ibb.co/dwDFOL/summary-performance.png" />
+                  <img src="https://image.ibb.co/bLmDA0/todolist-Me-audit.png" />
+                  <img src="https://image.ibb.co/j3oDcf/call-tree-our-to-do.png" />
+                  <img src="https://image.ibb.co/n17H3L/Summary-todolistme.png" />
+                  <img src="https://image.ibb.co/j3oDcf/call-tree-our-to-do.png" />
+                </li>
+							</ul>
+							<p>
+                As you can see, in the summary every parameter spend more times loading the resources
+                 than our project to. Now it's important to highlight that's when you see your monitor,
+                if you wait more than 2 or 3 seconds, you will not live an easy UX. We have the same task,
+                but our times are better. In every-single-parameter.
+              </p>
+						<div class="section-txt" id="credit">
+							<h3>Credits</h3>
+							<p>
+                Writte by Federico Castorina
+              </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 center">
+					This template presents by <a href="http://dev.valthemes.com" target="_blank">valthemes.com</a>. This product was created as free.<br>You can use this as you like in noncommercial purposes.
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 center">
+					Developed by valthemes.com © 2016. All rights reserved.
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/prettify.min.js"></script>
+	<script src="js/scripts.min.js"></script>
+</body>
+</html>
